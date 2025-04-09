@@ -1,0 +1,17 @@
+AREA OF A TRIANGLE USING NORMAL FORMULA:
+base = int(input("Enter the base of the triangle: "))
+height = int(input("Enter the height of the triangle: "))
+
+area = 0.5 * base * height
+print("The area of the triangle is: ",area)
+
+FUNCTION DEF:
+def calculate_area(base, height):
+    area = 0.5 * base * height  
+
+base = int(input("Enter the base of the triangle: "))
+height = int(input("Enter the height of the triangle: "))
+
+area = calculate_area(base, height)
+
+print("The area of the triangle is: ",area)
