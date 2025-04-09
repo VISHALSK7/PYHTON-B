@@ -1,0 +1,31 @@
+PROGRAM TO FIND THE AREA OF RECTANGLE:
+
+class Polygon:
+    def __init__(self, no_of_sides):
+        self.n = no_of_sides  # Number of sides
+        self.sides = [0 for i in range(no_of_sides)]  # Initialize the sides list
+
+    def inputSides(self):
+        # Input the side lengths from the user
+        self.sides = [float(input("Enter side " + str(i + 1) + ": ")) for i in range(self.n)]
+
+    def dispSides(self):
+        # Display the sides of the polygon
+        for i in range(self.n):
+            print("Side", i + 1, "is", self.sides[i])
+
+    def findArea(self):
+         length, width = self.sides
+         area = length * width
+         print(f"Area of the rectangle is: {area:.2f}")
+
+class Rectangle(Polygon):
+    def __init__(self):
+         Polygon.__init__(self,2)
+         # Rectangle has 2 sides (length and width)
+
+# Creating an object of the Rectangle class
+r = Rectangle()
+r.inputSides()  # Input sides of the rectangle
+r.dispSides()   # Display sides of the rectangle
+r.findArea()    # Calculate and display the area of the rectangle
