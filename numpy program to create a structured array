@@ -1,0 +1,32 @@
+#write a numpy program to create a structured array from given student name,height,class, and their data types with some missing values and 
+#show the data.Fill out the missing values and output the data
+
+import numpy as np
+
+student_dtype = [
+    ('name', 'U20'),   
+    ('height', 'f8'),   
+    ('class', 'i4')     
+]
+
+students = np.array([
+    ('Alice', 5.5, 10),
+    ('Bob', np.nan, 9),
+    ('Charlie', 5.8, 10),
+    ('David', 5.7, 11),
+    ('Eve', np.nan, 12)
+], dtype=student_dtype)
+
+print("Original data:")
+print(students)
+
+average_height = np.nanmean(students['height'])
+students['height'] = np.where(np.isnan(students['height']), average_height, students['height'])
+
+print("\nData after filling missing values:")
+print(students)
+
+sorted_students = np.sort(students, order='height')
+
+print("\nSorted students by height:")
+print(sorted_students)
