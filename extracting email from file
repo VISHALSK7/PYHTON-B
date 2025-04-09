@@ -1,0 +1,35 @@
+//Extracting emails from input file
+
+import re
+
+def extract_emails(file_path):
+    # Regular expression pattern for matching email addresses
+    email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+
+    try:
+        # Open the file in read mode
+        with open(file_path, 'r') as file:
+            # Read the contents of the file
+            file_content = file.read()
+
+            # Find all email addresses using the regex pattern
+            email_addresses = re.findall(email_pattern, file_content)
+
+            return email_addresses
+
+    except FileNotFoundError:
+        print(f"Error: The file at {file_path} was not found.")
+        return []
+
+# Example usage
+if __name__ == "__main__":
+    # Replace 'your_file.txt' with the path to your text file
+    file_path = 'your_file.txt'
+    emails = extract_emails(file_path)
+
+    if emails:
+        print("Extracted Email Addresses:")
+        for email in emails:
+            print(email)
+    else:
+        print("No email addresses found or file not found.")
