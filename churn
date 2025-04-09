@@ -1,0 +1,25 @@
+Dowload a CSV file from google and upload it to jupyter notebook, only then you'll be able to execute the below command.
+The file is the basic dataset to the command below.
+
+CODE TO CREATE THE DATASET;:
+import numpy as np
+import pandas as pd
+churn_data=pd.read_csv('churn.csv',index_col=0)
+print(churn_data.head())
+
+COMMANDS TO DIPLAY OR ALTER SOME OF THE ROWS:
+print(churn_data.dtypes)
+
+print(churn_data.columns)
+
+print(churn_data.Phone)
+
+print(len(churn_data)-len(churn_data.drop_duplicates()))
+
+df=churn_data['Account Length'].duplicated()
+print(df)
+print(sum(df))
+print(churn_data[df])
+
+print(churn_data.isnull().sum())
+help(churn_data.isna)
