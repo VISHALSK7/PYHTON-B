@@ -1,0 +1,39 @@
+#1
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import numpy as np
+
+births = pd.read_csv('births.csv')
+print(births.head())
+print(births.dtypes)
+print(births.describe())
+
+  
+#2
+temp=births.pivot_table('births', index='year', columns='gender', aggfunc='sum')
+pd.pivot_table(births, index='year', columns='gender', aggfunc='sum', values='births').plot()
+print(temp)
+plt.ylabel('total births per year');
+
+
+#3
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Group by year and sum all births (ignoring gender)
+total_births_per_year = births.pivot_table(index='year', values='births', aggfunc='sum')
+
+# Plot total births per year
+total_births_per_year.plot()
+
+# Add label to y-axis
+plt.ylabel('Total births per year')
+plt.title('Total Number of Births Each Year')
+
+# Display the table
+print(total_births_per_year)
+
+# Show the plot
+plt.show()
+
